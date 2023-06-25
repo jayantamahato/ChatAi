@@ -1,0 +1,38 @@
+.chat-header-container {
+  height: 80px;
+  color: white;
+  background-color: #201b46;
+  text-align: center;
+  margin: auto;
+}
+
+.chat-header-container>.chatContet>.userDetails {
+  display: flex;
+  align-items: end;
+  margin: auto;
+  height: 50px;
+  align-items: center;
+}
+
+.chat-header-container>.chatContet>.userDetails h4 {
+  /* margin-left: 20px; */
+  height: 50px;
+  width: 50px;
+  border: 1px solid wheat;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-header-container>.chatContet>.userDetails>.usericon {
+  border: 1px solid wheat;
+  height: 50x;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+
+}

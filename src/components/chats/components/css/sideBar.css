@@ -1,0 +1,144 @@
+.sidebar_container {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 300px;
+    background-color: #201b46;
+    height: 100vh;
+    padding: 10px;
+}
+
+.sidebar_container>.top_part {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.sidebar_container>.top_part button {
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    border: 0.5px solid white;
+    border-radius: 5px;
+    background-color: transparent;
+    margin: 2px;
+}
+
+.sidebar_container>.top_part>.recent_chats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* height: 55px; */
+    margin: 10px;
+}
+
+.top_part>button>.freespace {
+    width: 15px;
+}
+
+.recent_chat>.freespace {
+    width: 15px;
+}
+
+.sidebar_container>.top_part>.recent_chats {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar_container>.top_part>.recent_chats>.recent_chat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #49427b;
+    width: 100%;
+    height: 45px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.sidebar_container>.bottom_part {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.sidebar_container>.bottom_part>ul .freespace {
+    width: 15px;
+}
+
+.sidebar_container>.bottom_part ul {
+    list-style-type: none;
+}
+
+.sidebar_container>.bottom_part>ul li {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.modal {
+    height: 30vh;
+    background-color: #201b46;
+    margin: 0;
+    border: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px
+}
+
+.modal>.content {
+    height: 30vh;
+    width: 100%;
+}
+
+.modal>.content h4 {
+    border-bottom: 2px solid white;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.modal>.content h5 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.popUpBtns {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.logOutBtn {
+    margin: 10px;
+    background-color: #49427b;
+    color: red;
+    border: none;
+    width: 80px;
+    height: 30px;
+}
+
+.closeBtn {
+    margin: 10px;
+    background-color: #49427b;
+    color: White;
+    border: none;
+    width: 80px;
+    height: 30px;
+}
