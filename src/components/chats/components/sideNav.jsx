@@ -1,28 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./css/sideBar.css";
-import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 function SideNav(props) {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    console.log("print");
-    checUser();
-  }, []);
-
-  var recentData = ["data1", "data2", "data3"];
   const deleteConversations = () => {
     props.onClick("");
   };
   const logOut = () => {
     localStorage.clear();
     checUser();
+  };
+  const handelTemperature = (value) => {
+    props.onTemperatureChange(value);
+  };
+  const handleModel = (e) => {
+    props.onhandleModel(e.target.value);
   };
 
   const checUser = () => {
@@ -35,25 +33,16 @@ function SideNav(props) {
     <>
       <div className="sidebar_container">
         <div className="top_part">
-          <button>
+          <button onClick={deleteConversations}>
             <AddOutlinedIcon />
             <div className="freespace"></div>add new chat
           </button>
-          <div className="recent_chats">
-            {recentData.map((msg, index) => (
-              <RecentChat key={index} msg={msg} />
-            ))}
-          </div>
+          <Models />
+          <Temperature />
         </div>
 
         <div className="bottom_part">
           <ul>
-            <li onClick={deleteConversations}>
-              <DeleteOutlineOutlinedIcon />
-              <div className="freespace"></div>
-              Delete all conversation
-            </li>
-
             <li>
               <Popup
                 trigger={
@@ -90,15 +79,49 @@ function SideNav(props) {
       </div>
     </>
   );
+  function Temperature() {
+    return (
+      <div className="temperature">
+        <div className="temperature_button" onClick={() => handelTemperature(0)}>
+          <p>0 - Logical</p>
+        </div>
+        <div className="temperature_button" onClick={() => handelTemperature(0.5)}>
+          <p>0.5 - Balanced</p>
+        </div>
+        <div className="temperature_button" onClick={() => handelTemperature(1)}>
+          <p>1 - Creative</p>
+        </div>
+        <div className="temperature_discription">The temperature parameter controls the randomness of the model.0 is the most logical,1 is the most creative</div>
+      </div>
+    );
+  }
+
+  function Models() {
+    return (
+      <div className="model">
+        <div className="model_heading">Model</div>
+        <div className="model_selection">
+          <select name="model" id="model" onChange={(e) => handleModel(e)}>
+            <option value={props.selectedModel}>{props.selectedModel}</option>
+            {props.model.map((data) => (
+              <option key={data.id} value={data.id}>
+                {data.id}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="model_selection_button" onClick={(e) => handleModel(e)}>
+          <p value="text-davinci-003">Smart - Davinci</p>
+        </div>
+        <div className="model_selection_button">
+          <p>Code - Crushman</p>
+        </div>
+        <div className="about_model">
+          <p>The model parameter controls the engine used to generate the response. Davinci produces best results.</p>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default SideNav;
-function RecentChat(data) {
-  return (
-    <div className="recent_chat">
-      <ChatBubbleOutlineOutlinedIcon />
-      <div className="freespace"></div>
-      {data.msg}
-    </div>
-  );
-}

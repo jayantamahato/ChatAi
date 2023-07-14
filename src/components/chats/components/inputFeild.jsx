@@ -7,7 +7,7 @@ function InputSection(props) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.onChange(message);
+    props.onSubmit(message);
     e.target.reset();
   };
 
